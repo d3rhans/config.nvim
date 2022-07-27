@@ -4,6 +4,8 @@ local silent_opt = { silent = true }
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
+
+
 -- Basic binds / more sane settings
 km.nnoremap("Y", "y$")
 km.nnoremap("<leader>,", ",")
@@ -60,3 +62,32 @@ km.nnoremap("<leader>Q", "<cmd>Bdelete<cr>", silent_opt)
 
 -- Neogen
 km.nnoremap("<leader>D", "<cmd>Neogen<cr>", silent_opt)
+
+-- Luasnip
+local snip_status_ok, ls = pcall(require, "luasnip")
+if snip_status_ok then
+    local expand_jump_or_tab = function()
+        if ls.expand_or_jumpable() then
+            ls.expand_or_jump()
+        else
+            local tab = vim.api.nvim_replace_termcodes("<Tab>", true, false, true)
+            vim.api.nvim_feedkeys(tab, "n", false)
+        end
+    end
+
+    local next_choice = function()
+        if ls.choice_active() then
+            ls.change_choice(1)
+        else
+            local ce = vim.api.nvim_replace_termcodes("<C-E>", true, false, true)
+            vim.api.nvim.nvim_feedkeys(ce, "n", false)
+        end
+    end
+
+    km.inoremap("<Tab>", expand_jump_or_tab)
+    km.inoremap("<S-Tab>", function() ls.jump(-1) end)
+    km.snoremap("<Tab>", function() ls.jump(1) end)
+    km.snoremap("<S-Tab>", function() ls.jump(-1) end)
+    km.inoremap("<C-E>", next_choice)
+    km.snoremap("<C-E>", next_choice)
+end

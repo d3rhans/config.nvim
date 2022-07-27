@@ -12,7 +12,7 @@ ls.config.set_config({
 	ext_opts = {
 		[types.choiceNode] = {
 			active = {
-				virt_text = { { "choiceNode", "Comment" } },
+				virt_text = { { "", "Comment" } },
 			},
 		},
 	},
@@ -25,16 +25,5 @@ ls.config.set_config({
 	end,
 })
 
--- Keybinds, kind of ugly with the vim.vmd
-vim.cmd [[
-imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
-]]
-vim.keymap.set("i", "<S-Tab>", function() ls.jump(-1) end)
-vim.keymap.set("s", "<Tab>", function() ls.jump(1) end)
-vim.keymap.set("s", "<S-Tab>", function() ls.jump(-1) end)
-vim.cmd [[
-imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-]]
 
 require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/snippets"})
