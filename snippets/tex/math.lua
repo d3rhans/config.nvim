@@ -19,6 +19,7 @@ lrmatches["\\left("] = "\\right)"
 lrmatches["\\left["] = "\\right]"
 lrmatches["\\left\\{"] = "\\right\\}"
 lrmatches["\\langle"] = "\\rangle"
+lrmatches["\\left\\langle"] = "\\right\\rangle"
 
 local mathSnip = function(head, snip)
     return s(head, snip,
