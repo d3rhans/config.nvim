@@ -1,0 +1,15 @@
+require "cfg.options"
+require "cfg.packer"
+require "cfg.remaps"
+require "cfg.telescope"
+require "cfg.treesitter"
+require "cfg.completion"
+require "cfg.lsp"
+require "cfg.luasnip"
+require "cfg.autopairs"
+require "cfg.lualine"
+
+require "cfg.plugins"
+
+require "cfg.autocommands"
+require "cfg.colors"
