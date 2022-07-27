@@ -35,6 +35,22 @@ local options = {
     autoindent = true,          -- Take over indent from last
 
     completeopt = {"menuone", "noinsert", "noselect"},
+    wildignore = {
+        "__pycache__",
+        "*.pyc",
+        "*.o",
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.fdb_latexmk",
+        "*.fls",
+        "*.pdf",
+        "*.synctex.gz",
+        "*.png",
+        "*.jpg",
+        "*.eps",
+        "*.run.xml"
+    },
 
     -- Spell checking
     spelllang = { "de_de", "en_us" },
