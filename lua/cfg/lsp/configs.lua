@@ -5,7 +5,13 @@ end
 
 local lspconfig = require("lspconfig")
 
-local servers = { "texlab", "sumneko_lua", "pylsp", "clangd" }
+local servers = {
+    "texlab",
+    "sumneko_lua",
+    "pylsp",
+    "clangd",
+    "rust_analyzer"
+}
 
 lsp_installer.setup({
     ensure_installed = servers,
@@ -16,9 +22,12 @@ for _, server in pairs(servers) do
         on_attach = require("cfg.lsp.handlers").on_attach,
         capabilities = require("cfg.lsp.handlers").capabilities,
     }
+
     local has_custom_opts, server_custom_opts = pcall(require, "cfg.lsp.settings." .. server)
+
     if has_custom_opts then
         opts = vim.tbl_deep_extend("force", opts, server_custom_opts)
     end
+
     lspconfig[server].setup(opts)
 end
