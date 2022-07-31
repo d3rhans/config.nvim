@@ -29,21 +29,22 @@ packer.init {
 
 packer.startup(function(use)
     -- Basics
-    use 'wbthomason/packer.nvim'          -- Have packer manage itself
-    use 'lewis6991/impatient.nvim'        -- Jit and speedup and whatnot
-    use 'nvim-lua/plenary.nvim'           -- Useful lua functions used by lots of plugins
+    use 'wbthomason/packer.nvim'                  -- Have packer manage itself
+    use 'lewis6991/impatient.nvim'                -- Jit and speedup and whatnot
+    use 'nvim-lua/plenary.nvim'                   -- Useful lua functions used by lots of plugins
 
     -- Small stuff / helpers and whatnot
-     use 'windwp/nvim-autopairs'          -- Automatically close parenthesis and stuff
-    use 'numToStr/Comment.nvim'           -- Comment / Uncomment
-    use 'kyazdani42/nvim-web-devicons'    -- Make things look nice
-    use 'tpope/vim-fugitive'              -- Git integration
-    use 'tpope/vim-repeat'                -- Make . work for various plugins
-    use 'tpope/vim-surround'              -- Add, change, delete surrounding parenthesis, quotes...
-    use 'godlygeek/tabular'               -- Tabularize text on pattern
-    use 'moll/vim-bbye'                   -- Dump buffers
-    use 'nvim-lualine/lualine.nvim'       -- Eyecandy
-    use 'danymat/neogen'                  -- Docstrings
+     use 'windwp/nvim-autopairs'                  -- Automatically close parenthesis and stuff
+    use 'numToStr/Comment.nvim'                   -- Comment / Uncomment
+    use 'kyazdani42/nvim-web-devicons'            -- Make things look nice
+    use 'tpope/vim-fugitive'                      -- Git integration
+    use 'tpope/vim-repeat'                        -- Make . work for various plugins
+    use 'tpope/vim-surround'                      -- Add, change, delete surrounding parenthesis, etc
+    use 'godlygeek/tabular'                       -- Tabularize text on pattern
+    use 'moll/vim-bbye'                           -- Dump buffers
+    use 'nvim-lualine/lualine.nvim'               -- Eyecandy
+    use 'danymat/neogen'                          -- Docstrings
+    use 'lukas-reineke/indent-blankline.nvim'     -- Viual indicator for indents and such
 
     -- Color
     use "EdenEast/nightfox.nvim"
@@ -64,6 +65,7 @@ packer.startup(function(use)
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
     use 'RRethy/vim-illuminate'
+    -- use 'jose-elias-alvarez/null-ls.nvim'
 
     -- Telescope
     use 'nvim-telescope/telescope.nvim'
