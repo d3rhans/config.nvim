@@ -5,9 +5,18 @@ end
 
 nf.setup({
     options = {
-        comments = "italic",
-        keywords = "bold",
-    }
+        transperant = true,
+        styles = {
+            comments = "italic",
+            keywords = "bold",
+        },
+    },
+
+    groups = {
+        terafox = {
+            CursorLine = { bg = "bg2" },
+        }
+    },
 })
 
 local colorscheme = "terafox"
