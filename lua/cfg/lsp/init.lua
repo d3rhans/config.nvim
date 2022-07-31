@@ -3,6 +3,6 @@ if not status_ok then
   return
 end
 
-require "cfg.lsp.configs"
+require "cfg.lsp.setup"
 require("cfg.lsp.handlers").setup()
 --require "config.lsp.null-ls"
