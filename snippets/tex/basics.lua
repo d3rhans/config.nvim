@@ -117,16 +117,16 @@ local doubleEnvs = {
 }
 
 for _, command in pairs(commands) do
-    table.insert(snippets, tools.commandSnip(table.unpack(command)))
+    table.insert(snippets, tools.commandSnip(command[1], command[2]))
 end
 
 for _, senv in pairs(simpleEnvs) do
-    local trigger, name = table.unpack(senv)
+    local trigger, name = senv[1], senv[2]
     table.insert(snippets, tools.envSnip(trigger, name, t(name), i(0), t(name)))
 end
 
 for _, denv in pairs(doubleEnvs) do
-    local trigger, name, opt = table.unpack(denv)
+    local trigger, name, opt = denv[1], denv[2], denv[3]
     table.insert(snippets, tools.doubleEnvSnip(trigger, name, t(name), i(1, opt), i(0), t(name)))
 end
 

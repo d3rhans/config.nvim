@@ -87,7 +87,7 @@ local snippets = {
 }
 
 for _, env in pairs(beamerEnvs) do
-    local trigger, name, opt = table.unpack(env)
+    local trigger, name, opt = env[1], env[2], env[3]
     table.insert(snippets, tools.doubleEnvSnip(
         trigger, name,
         t(name), i(1, opt), i(0), t(name)
