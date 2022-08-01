@@ -11,5 +11,6 @@ null_ls.setup({
     sources = {
         formatting.black.with { extra_agrs = { "--fast" } },
         formatting.isort,
+        -- formatting.stylua
     },
 })
