@@ -79,6 +79,10 @@ packer.startup(function(use)
     -- Vimtex
     use 'lervag/vimtex'
 
+    -- Special stuff
+    use 'baskerville/vim-sxhkdrc'
+
+
     if packer_bootstrap then
         require('packer').sync()
     end
