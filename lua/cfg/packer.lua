@@ -79,6 +79,9 @@ packer.startup(function(use)
     -- Vimtex
     use 'lervag/vimtex'
 
+    -- Rust or bust
+    use 'simrat39/rust-tools.nvim'
+
     -- Special stuff
     use 'baskerville/vim-sxhkdrc'
 

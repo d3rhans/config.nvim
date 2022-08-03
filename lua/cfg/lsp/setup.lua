@@ -10,7 +10,8 @@ local servers = {
     "sumneko_lua",
     "pylsp",
     "clangd",
-    "rust_analyzer"
+    "rust_analyzer",
+    "taplo"
 }
 
 lsp_installer.setup({
@@ -29,5 +30,24 @@ for _, server in pairs(servers) do
         opts = vim.tbl_deep_extend("force", opts, server_custom_opts)
     end
 
+    if server == "rust_analyzer" then
+        require("rust-tools").setup({
+            server = {
+                on_attach = require("cfg.lsp.handlers").on_attach,
+                capabilities = require("cfg.lsp.handlers").capabilities,
+                settings = {
+                    ["rust-analyzer"] = {
+                        checkOnSave = {
+                            command = "clippy",
+                        },
+                    },
+                },
+            },
+        })
+
+        goto continue
+    end
+
     lspconfig[server].setup(opts)
+    ::continue::
 end
