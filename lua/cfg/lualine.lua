@@ -32,6 +32,18 @@ local location = {
     padding = 1,
 }
 
+local tabs = {
+    "tabs",
+    mode = 2,
+
+    tabs_color = {
+        active = 'lualine_a_normal',
+        inactive = 'lualine_b_normal',
+    },
+
+    cond = function()  return #vim.api.nvim_list_tabpages() > 1 end,
+}
+
 local function navic_loc()
     local navic_ok, navic = pcall(require, "nvim-navic")
     if navic_ok then
@@ -59,6 +71,7 @@ lualine.setup {
     },
     tabline = {
         lualine_b = {  filetype, "filename", navic_loc },
+        lualine_z = { tabs }
     },
     sections = {
         lualine_a = { "mode" },
