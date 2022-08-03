@@ -5,7 +5,8 @@ end
 
 nf.setup({
     options = {
-        transperant = true,
+        transparent = true,
+        terminal_colors = true,
         styles = {
             comments = "italic",
             keywords = "bold",
