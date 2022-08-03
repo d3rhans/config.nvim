@@ -3,9 +3,8 @@ if not status_ok then
     return
 end
 
--- local hide_in_width = function()
---     return vim.fn.winwidth(0) > 80
--- end
+local navic_ok, navic = pcall(require, "nvim-navic")
+
 
 local diagnostics = {
     "diagnostics",
@@ -44,19 +43,21 @@ local tabs = {
     cond = function()  return #vim.api.nvim_list_tabpages() > 1 end,
 }
 
-local function navic_loc()
-    local navic_ok, navic = pcall(require, "nvim-navic")
-    if navic_ok then
-        if navic.is_available() then
-            local loc = navic.get_location()
 
-            if loc ~= nil and loc ~= '' then
-                return ">  " .. navic.get_location()
-            end
-        end
+local function navic_loc()
+    local loc = navic.get_location()
+
+    if loc == nil or loc == '' then
+        return ''
     end
-    return ''
+
+    return ">  " .. loc
 end
+
+local navic_info = {
+    navic_loc,
+    cond = function() return navic_ok and navic.is_available() end
+}
 
 
 lualine.setup {
@@ -70,7 +71,7 @@ lualine.setup {
         always_divide_middle = true,
     },
     tabline = {
-        lualine_b = {  filetype, "filename", navic_loc },
+        lualine_b = { filetype, "filename", navic_info },
         lualine_z = { tabs }
     },
     sections = {
