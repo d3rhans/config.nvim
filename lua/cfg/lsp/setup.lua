@@ -7,8 +7,8 @@ local lspconfig = require("lspconfig")
 
 local servers = {
     "texlab",
+    "pyright",
     "sumneko_lua",
-    "pylsp",
     "clangd",
     "rust_analyzer",
     "taplo"

@@ -66,7 +66,7 @@ packer.startup(function(use)
     use 'williamboman/nvim-lsp-installer'
     use 'RRethy/vim-illuminate'
     use 'SmiteshP/nvim-navic'
-    -- use 'jose-elias-alvarez/null-ls.nvim'
+    use 'jose-elias-alvarez/null-ls.nvim'
 
     -- Telescope
     use 'nvim-telescope/telescope.nvim'
