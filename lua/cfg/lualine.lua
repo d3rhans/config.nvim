@@ -3,9 +3,9 @@ if not status_ok then
     return
 end
 
-local hide_in_width = function()
-    return vim.fn.winwidth(0) > 80
-end
+-- local hide_in_width = function()
+--     return vim.fn.winwidth(0) > 80
+-- end
 
 local diagnostics = {
     "diagnostics",
@@ -19,13 +19,12 @@ local diagnostics = {
 local diff = {
     "diff",
     colored = false,
-    symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-    cond = hide_in_width,
+    symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
 }
 
 local filetype = {
     "filetype",
-    icons_enabled = true,
+    icon_only = true,
 }
 
 local location = {
@@ -33,9 +32,20 @@ local location = {
     padding = 1,
 }
 
--- local spaces = function()
---     return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
--- end
+local function navic_loc()
+    local navic_ok, navic = pcall(require, "nvim-navic")
+    if navic_ok then
+        if navic.is_available() then
+            local loc = navic.get_location()
+
+            if loc ~= nil and loc ~= '' then
+                return ">  " .. navic.get_location()
+            end
+        end
+    end
+    return ''
+end
+
 
 lualine.setup {
     options = {
@@ -47,11 +57,14 @@ lualine.setup {
         disabled_filetypes = { "alpha", "dashboard" },
         always_divide_middle = true,
     },
+    tabline = {
+        lualine_b = {  filetype, "filename", navic_loc },
+    },
     sections = {
         lualine_a = { "mode" },
         lualine_b = {"branch"},
         lualine_c = { diagnostics },
-        lualine_x = { diff, filetype },
+        lualine_x = { diff },
         lualine_y = { location },
         lualine_z = { "progress" },
     },
