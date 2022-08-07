@@ -1,6 +1,7 @@
 require "cfg.options"
 require "cfg.packer"
 require "cfg.remaps"
+require "cfg.mason"
 require "cfg.telescope"
 require "cfg.treesitter"
 require "cfg.completion"
