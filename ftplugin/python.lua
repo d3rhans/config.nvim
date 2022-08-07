@@ -1,18 +1,14 @@
+km = require("utils.keymaps")
+
 vim.opt.textwidth = 99
-
-local get_python = function()
-	local f = assert(io.popen("which python", "r"))
-	local p = assert(f:read("*a"))
-	f:close()
-
-	return p
-end
 
 local dap_python_loaded, dap_python = pcall(require, "dap-python")
 if dap_python_loaded then
-	dap_python.setup(get_python())
+	dap_python.setup('~/Code/venvs/debugpy/bin/python')
 
-	-- table.insert(require("dap").configurations.python, {
-	-- 	env = { ["PYTHONPATH"] = "${workspaceRoot}" },
-	-- })
+    local silent_opt = { silent = true }
+    km.nnoremap("<leader>dm", dap_python.test_method, silent_opt)
+    km.nnoremap("<leader>dc", dap_python.test_class, silent_opt)
+    km.vnoremap("<leader>ds", dap_python.debug_selection, silent_opt)
+
 end
