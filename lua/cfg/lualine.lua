@@ -43,7 +43,7 @@ lualine.setup {
         lualine_b = {"branch"},
         lualine_c = { diagnostics },
         lualine_x = { diff },
-        lualine_y = { location },
-        lualine_z = { "progress" },
+        lualine_y = { filetype, 'filename' },
+        lualine_z = { location },
     },
 }
