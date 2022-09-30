@@ -2,7 +2,7 @@ local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({'git',
+    Packer_bootstrap = fn.system({'git',
     'clone',
     '--depth',
     '1',
@@ -66,7 +66,6 @@ packer.startup(function(use)
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
     use 'RRethy/vim-illuminate'
-    use 'SmiteshP/nvim-navic'
     use 'jose-elias-alvarez/null-ls.nvim'
 
     -- DAP
@@ -94,7 +93,7 @@ packer.startup(function(use)
     use 'baskerville/vim-sxhkdrc'
 
 
-    if packer_bootstrap then
+    if Packer_bootstrap then
         require('packer').sync()
     end
 end)

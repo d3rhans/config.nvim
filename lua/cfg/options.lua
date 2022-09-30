@@ -1,11 +1,10 @@
 local options = {
     fileencoding = "utf-8",     -- Unicode
-    clipboard = "unnamedplus",  -- Access to system clipboard
+    clipboard = "",             -- No system clipboard stuff
     guicursor = "",             -- Block cursor
     showmatch = true,           -- Show matching {[()]}
-    cursorline = true,         -- Highlight current line
+    cursorline = true,          -- Highlight current line
     textwidth = 100,            -- Standard line width
-    -- colorcolumn = "+1",          -- Show bar after 100 characters
     scrolloff = 10,             -- 10 lines before and after while scrolling
     number = true,              -- Line numbers
     relativenumber = true,      -- relative numbers
@@ -64,3 +63,8 @@ end
 vim.opt.path:append("**")
 vim.opt.diffopt:append("vertical")
 vim.opt.shortmess:append("c")
+
+-- Vimtex
+vim.g.tex_flavor = 'latex'
+vim.g.vimtex_view_method = 'zathura'
+vim.g.vimtex_quickfix_open_on_warning = 0

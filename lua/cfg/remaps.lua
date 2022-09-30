@@ -13,6 +13,8 @@ km.nnoremap("n", "nzzzv")
 km.nnoremap("N", "Nzzzv")
 km.nnoremap("J", "mzJ`z")
 km.nnoremap("<leader><Space>", "<cmd>nohlsearch<CR>", silent_opt)
+km.nnoremap("<leader>y", '"+y')
+km.nnoremap("<leader>p", '"+p')
 
 -- Better window navigation
 km.nnoremap("<C-h>", "<C-w>h")
