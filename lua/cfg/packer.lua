@@ -42,12 +42,12 @@ packer.startup(function(use)
     use 'tpope/vim-surround'                      -- Add, change, delete surrounding parenthesis, etc
     use 'godlygeek/tabular'                       -- Tabularize text on pattern
     use 'moll/vim-bbye'                           -- Dump buffers
-    use 'nvim-lualine/lualine.nvim'               -- Eyecandy
     use 'danymat/neogen'                          -- Docstrings
     use 'lukas-reineke/indent-blankline.nvim'     -- Viual indicator for indents and such
 
     -- Color
     use "EdenEast/nightfox.nvim"
+    use "habamax/vim-habamax"
 
     -- Completion
     use 'hrsh7th/nvim-cmp'
@@ -81,7 +81,6 @@ packer.startup(function(use)
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'p00f/nvim-ts-rainbow'
-    use 'nvim-treesitter/playground'
 
     -- Vimtex
     use 'lervag/vimtex'

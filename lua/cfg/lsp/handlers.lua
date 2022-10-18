@@ -60,13 +60,6 @@ local function lsp_highlight_document(client)
 	illuminate.on_attach(client)
 end
 
-local function setup_navic(client, bufnr)
-	local status_ok, navic = pcall(require, "nvim-navic")
-	if status_ok then
-		navic.attach(client, bufnr)
-	end
-end
-
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true }
 	local keymap = vim.api.nvim_buf_set_keymap
@@ -92,7 +85,6 @@ M.on_attach = function(client, bufnr)
 
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
-	setup_navic(client, bufnr)
 end
 
 return M

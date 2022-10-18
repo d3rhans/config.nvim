@@ -9,7 +9,6 @@ require "cfg.completion"
 require "cfg.lsp"
 require "cfg.luasnip"
 require "cfg.autopairs"
-require "cfg.lualine"
 require "cfg.indentline"
 
 require "cfg.plugins"
