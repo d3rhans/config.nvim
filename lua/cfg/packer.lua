@@ -47,7 +47,7 @@ packer.startup(function(use)
 
     -- Color
     use "EdenEast/nightfox.nvim"
-    use "habamax/vim-habamax"
+    use { "catppuccin/nvim", as = "catppuccin" }
 
     -- Completion
     use 'hrsh7th/nvim-cmp'
