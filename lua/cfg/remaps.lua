@@ -69,8 +69,7 @@ km.nnoremap("<leader>D", "<cmd>Neogen<cr>", silent_opt)
 local snip_status_ok, ls = pcall(require, "luasnip")
 if snip_status_ok then
     local expand_jump_or_tab = function()
-        if ls.expand_or_locally_jumpable() then
-            print("what")
+        if ls.expand_or_jumpable() then
             ls.expand_or_jump()
         else
             local tab = vim.api.nvim_replace_termcodes("<Tab>", true, false, true)
