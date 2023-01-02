@@ -47,7 +47,6 @@ packer.startup(function(use)
 
     -- Color
     use "EdenEast/nightfox.nvim"
-    use { "catppuccin/nvim", as = "catppuccin" }
 
     -- Completion
     use 'hrsh7th/nvim-cmp'
@@ -80,7 +79,6 @@ packer.startup(function(use)
     -- Treesitter
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/nvim-treesitter-textobjects'
-    use 'p00f/nvim-ts-rainbow'
 
     -- Vimtex
     use 'lervag/vimtex'
